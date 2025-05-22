@@ -1,6 +1,15 @@
 # Node modules
 node_modules/
 
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+
 # Environment variables
 .env
 
