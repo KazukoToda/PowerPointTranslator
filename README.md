@@ -7,11 +7,12 @@ A web application that allows users to upload PowerPoint (PPTX) files, translate
 - Upload PowerPoint (PPTX) files
 - Translate Japanese text to English using Azure Translator API
 - Download translated PowerPoint files
-- User-friendly interface with drag-and-drop support
+- User-friendly interface with Streamlit
+- Optional custom dictionary support
 
 ## Prerequisites
 
-- Node.js (v14 or higher)
+- Python 3.8 or higher
 - Azure Translator API key (with subscription)
 
 ## Installation
@@ -23,53 +24,55 @@ git clone https://github.com/KazukoToda/PowerPointTranslator.git
 cd PowerPointTranslator
 ```
 
-2. Install dependencies:
+2. Create a virtual environment and activate it:
 
 ```bash
-npm install
+python -m venv venv
+source venv/bin/activate  # On Windows, use: venv\Scripts\activate
 ```
 
-3. Create a `.env` file based on the example:
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Create a `.env` file based on the example:
 
 ```bash
 cp .env.example .env
 ```
 
-4. Add your Azure Translator API key and region to the `.env` file:
+5. Add your Azure Translator API key and region to the `.env` file:
 
 ```
 AZURE_TRANSLATOR_KEY=your_azure_translator_key_here
 AZURE_TRANSLATOR_REGION=your_azure_region_here
-PORT=3000
 ```
 
 ## Usage
 
-1. Start the server:
+1. Start the Streamlit app:
 
 ```bash
-npm start
+streamlit run app.py
 ```
 
-2. Open your web browser and navigate to `http://localhost:3000`
+2. Open your web browser and navigate to the URL displayed in the terminal (typically `http://localhost:8501`)
 
 3. Upload a PowerPoint file using the web interface
 
-4. Wait for the translation to complete
+4. Optionally upload a custom dictionary file (CSV format with "source,target" pairs)
 
-5. Download the translated PowerPoint file
+5. Click "翻訳開始" (Start Translation)
 
-## Development
+6. Wait for the translation to complete
 
-For development with automatic restarts, run:
-
-```bash
-npm run dev
-```
+7. Download the translated PowerPoint file
 
 ## Limitations
 
 - Only supports PPTX files (not PPT)
-- Maximum file size is 50MB
-- Simple text translation (formatting may be affected)
+- Simple text translation (complex formatting may be affected)
 - Images and other elements are preserved but not modified
+- Some complex slide layouts may not be preserved perfectly
