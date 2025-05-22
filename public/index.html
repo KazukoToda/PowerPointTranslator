@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerPoint Translator - 日本語から英語へ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PowerPoint Translator</h1>
+            <p>日本語から英語へ PowerPointファイルを翻訳</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div id="drop-area" class="drop-area">
+                    <p><i class="fas fa-file-powerpoint"></i></p>
+                    <p>ファイルをドラッグ＆ドロップするか、クリックして選択</p>
+                    <input type="file" id="file-input" accept=".pptx" hidden>
+                    <button id="select-file-btn" class="btn">ファイルを選択</button>
+                </div>
+                <div id="file-info" class="file-info hidden">
+                    <div id="file-details">
+                        <p><i class="fas fa-file-powerpoint"></i> <span id="file-name"></span></p>
+                    </div>
+                    <button id="upload-btn" class="btn btn-primary">翻訳開始</button>
+                    <button id="cancel-btn" class="btn btn-secondary">キャンセル</button>
+                </div>
+            </div>
+
+            <div id="progress-section" class="progress-section hidden">
+                <div class="progress-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+                <p id="progress-status">翻訳処理中...</p>
+            </div>
+
+            <div id="result-section" class="result-section hidden">
+                <div class="result-container">
+                    <h3>翻訳完了！</h3>
+                    <p id="success-message">PowerPointファイルの翻訳が完了しました。</p>
+                    <button id="download-btn" class="btn btn-success">
+                        <i class="fas fa-download"></i> 翻訳ファイルをダウンロード
+                    </button>
+                    <button id="new-translation-btn" class="btn btn-primary">新しいファイルを翻訳</button>
+                </div>
+            </div>
+
+            <div id="error-section" class="error-section hidden">
+                <div class="error-container">
+                    <h3>エラーが発生しました</h3>
+                    <p id="error-message"></p>
+                    <button id="try-again-btn" class="btn btn-primary">再試行</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Azure Translator API</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
